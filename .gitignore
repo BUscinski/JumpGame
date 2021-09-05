@@ -65,3 +65,5 @@ UnityEngine.TestRunner.csproj
 UnityEngine.TestRunner.Player.csproj
 UnityEngine.UI.csproj
 UnityEngine.UI.Player.csproj
+obj/
+Logs/
