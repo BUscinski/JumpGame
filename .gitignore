@@ -67,3 +67,4 @@ UnityEngine.UI.csproj
 UnityEngine.UI.Player.csproj
 obj/
 Logs/
+Recordings/

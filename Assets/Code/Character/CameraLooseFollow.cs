@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
+[DefaultExecutionOrder(-100)]
 public class CameraLooseFollow : MonoBehaviour
 {
     [SerializeField] private float posLerpCoeff = 0.05f;
