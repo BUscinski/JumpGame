@@ -8,6 +8,10 @@ public class JumpingController : MonoBehaviour
     private Rigidbody _rb;
     private float _maxInitialForce = 50;
     private float _maxJumpDuration = 1.0f;
+    public float moveSpeed = 0.0f;
+    private float _realMoveSpeed = 0.0f;
+    private float _realMoveSpeedCatchURate = 0.99f;
+
 
 
     private float _currentForce;
@@ -22,7 +26,7 @@ public class JumpingController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-
+        _realMoveSpeed = (_realMoveSpeed * _realMoveSpeedCatchURate) + ((1.0f - _realMoveSpeedCatchURate) * moveSpeed);
         if (Input.GetKey(KeyCode.Space) && !_jumpReset)
         {
             if (_jumpTimeElapsed < _maxJumpDuration)
@@ -38,7 +42,7 @@ public class JumpingController : MonoBehaviour
             _jumpReset = true;
             _rb.AddForce(Vector3.down * _maxInitialForce / 2);
         }
-       
+        _rb.velocity = new Vector3(_rb.velocity.x, _rb.velocity.y, _realMoveSpeed);
     }
 
     private void OnCollisionEnter(Collision collision)
